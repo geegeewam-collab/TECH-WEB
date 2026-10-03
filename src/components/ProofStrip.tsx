@@ -10,20 +10,24 @@ export default function ProofStrip() {
   ];
 
   return (
-    <div className="w-full border-y-2 border-ink py-12 px-6 flex flex-wrap justify-around gap-8 items-center">
-      {stats.map((stat, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.1 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-5xl font-anton font-bold uppercase">{stat.value}</div>
-          <div className="text-sm font-inter uppercase tracking-widest opacity-70">{stat.label}</div>
-        </motion.div>
-      ))}
+    <div className="w-full bg-ink text-paper py-16 px-6">
+      <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-12">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="flex flex-col"
+          >
+            <span className="text-5xl md:text-7xl font-anton leading-none">{stat.value}</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-inter opacity-60 mt-2">
+              {stat.label}
+            </span>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

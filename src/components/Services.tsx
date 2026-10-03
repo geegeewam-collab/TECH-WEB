@@ -10,18 +10,35 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <h2 className="text-5xl md:text-7xl font-anton mb-12">Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-[10rem] px-6 max-w-7xl mx-auto">
+      <h2 className="text-6xl md:text-8xl font-anton mb-24 text-center">Services</h2>
+      <div className="flex flex-col gap-0">
         {services.map((service, i) => (
           <motion.div
             key={i}
-            whileHover={{ backgroundColor: "var(--ink)", color: "var(--paper)" }}
-            className="p-8 border-2 border-ink rounded-lg transition-all duration-300 cursor-pointer group"
+            whileHover="hover"
+            className="group relative py-12 border-t border-ink/10 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer"
           >
-            <h3 className="text-3xl font-anton mb-4">{service.title}</h3>
-            <p className="text-inter opacity-70 group-hover:opacity-100 mb-8">{service.desc}</p>
-            <span className="block font-bold text-lg">{service.price}</span>
+            <div className="flex flex-col max-w-2xl">
+              <motion.h3
+                variants={{ hover: { x: 20 } }}
+                className="text-2xl md:text-4xl font-anton mb-2 transition-all duration-300"
+              >
+                {service.title}
+              </motion.h3>
+              <p className="text-inter opacity-60 group-hover:opacity-100 transition-opacity">
+                {service.desc}
+              </p>
+            </div>
+            <div className="text-lg font-inter font-bold text-accent group-hover:translate-x-2 transition-transform">
+              {service.price}
+            </div>
+            {/* Minimalist accent line */}
+            <motion.div
+              variants={{ hover: { width: "100%" } }}
+              initial={{ width: 0 }}
+              className="absolute bottom-0 left-0 h-[2px] bg-accent transition-all duration-300"
+            />
           </motion.div>
         ))}
       </div>

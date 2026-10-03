@@ -11,24 +11,28 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <h2 className="text-5xl md:text-7xl font-anton mb-16">How I Work</h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <section className="py-[10rem] px-6 max-w-7xl mx-auto">
+      <h2 className="text-6xl md:text-8xl font-anton mb-32 text-center">Process</h2>
+
+      <div className="flex flex-col gap-32 md:gap-64">
         {steps.map((step, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="relative"
+            transition={{ duration: 0.8, delay: i * 0.1 }}
+            className={`relative flex flex-col ${i % 2 === 0 ? 'md:items-start' : 'md:items-end'} text-left md:text-right`}
           >
-            <span className="block text-8xl md:text-9xl font-anton opacity-10"
-                  style={{ WebkitTextStroke: "2px var(--ink)" }}>
+            <span className="text-[12rem] md:text-[20rem] font-anton text-ink/5 absolute -top-24 -z-10 left-0 md:left-auto md:right-0 select-none pointer-events-none">
               0{i + 1}
             </span>
-            <h3 className="text-sm font-inter uppercase tracking-widest opacity-60 mt-2 mb-4">{step.title}</h3>
-            <p className="text-inter opacity-70">{step.desc}</p>
+            <div className="relative z-10 max-w-md">
+              <h3 className="text-sm font-inter uppercase tracking-[0.3em] opacity-50 mb-4">{step.title}</h3>
+              <p className="text-2xl md:text-4xl font-inter leading-tight text-ink">
+                {step.desc}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>
