@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Archivo_Narrow, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 
-const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton" });
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const display = Archivo_Narrow({ weight: "700", subsets: ["latin"], variable: "--font-display" });
+const sans = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "GEEGEE TECH | Software that gets African businesses paid",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body className="font-sans antialiased">
         <Nav />
         {children}

@@ -2,7 +2,7 @@
 
 import { whatsappUrl } from "@/lib/site";
 
-const field = "w-full rounded-xl border border-ink/30 bg-transparent p-4 outline-none focus:border-accent";
+const field = "w-full rounded-2xl border-2 border-ink/20 bg-white/40 bg-transparent p-4 outline-none focus:border-accent";
 
 export default function Contact() {
   function send(e: React.FormEvent<HTMLFormElement>) {
@@ -15,7 +15,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-2xl px-6 py-24">
-      <h2 className="text-center text-5xl md:text-7xl">Let's build it</h2>
+      <h2 className="text-5xl md:text-7xl">Let's build it</h2>
       {whatsappUrl ? (
         <form onSubmit={send} className="mt-12 grid gap-4">
           <input name="name" required placeholder="Your name" aria-label="Your name" className={field} />
