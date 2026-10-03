@@ -1,23 +1,30 @@
-import Link from "next/link";
-import { whatsappUrl } from "@/lib/site";
+"use client";
 
-const links = [["Services", "#services"], ["Process", "#process"], ["Work", "#work"], ["About", "#about"]];
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Nav() {
   return (
-    <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
-      <div className="flex items-center gap-10">
-        <Link href="/" className="font-display text-xl">GEEGEE TECH</Link>
-        <nav className="hidden gap-6 text-sm text-ink/70 md:flex">
-          {links.map(([label, href]) => (
-            <Link key={href} href={href} className="hover:text-ink">{label}</Link>
-          ))}
-        </nav>
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-8 transition-all duration-300 md:px-12">
+      <div className="flex items-center gap-4">
+        <Link href="/" className="font-display text-lg tracking-tighter text-paper">
+          GEEGEE TECH
+        </Link>
+        <div className="hidden items-center gap-2 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-medium text-accent uppercase tracking-widest sm:flex">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent"></span>
+          </span>
+          Available for select projects
+        </div>
       </div>
-      <div className="flex items-center gap-5 text-sm">
-        {whatsappUrl && <a href={whatsappUrl} className="hidden text-ink/70 hover:text-ink sm:block">WhatsApp</a>}
-        <Link href="#contact" className="rounded-full bg-ink px-5 py-2 font-medium text-paper transition hover:bg-accent">Start a project</Link>
-      </div>
+
+      <nav className="flex items-center gap-8 text-[11px] font-medium uppercase tracking-[0.2em] text-paper/60">
+        <Link href="#work" className="hover:text-paper transition-colors">Work</Link>
+        <Link href="#systems" className="hover:text-paper transition-colors">Systems</Link>
+        <Link href="#about" className="hover:text-paper transition-colors">About</Link>
+        <Link href="#contact" className="hover:text-paper transition-colors">Contact</Link>
+      </nav>
     </header>
   );
 }
