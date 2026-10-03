@@ -15,14 +15,17 @@ export default function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-2xl px-6 py-24">
-      <h2 className="text-5xl md:text-7xl">Let's build it</h2>
+      <h2 className="text-5xl md:text-7xl">Ready to stop the leakage?</h2>
       {whatsappUrl ? (
-        <form onSubmit={send} className="mt-12 grid gap-4">
-          <input name="name" required placeholder="Your name" aria-label="Your name" className={field} />
-          <input name="email" type="email" placeholder="Email (optional)" aria-label="Email" className={field} />
-          <textarea name="message" required rows={4} placeholder="Tell me about your project" aria-label="Project details" className={field} />
-          <button className="rounded-full bg-ink py-4 font-medium text-paper transition hover:bg-accent">Send on WhatsApp</button>
-        </form>
+        <div className="mt-12">
+          <p className="mb-8 text-xl text-ink/70">Book a free 15-minute Payment Audit. I&apos;ll find the gaps in your current flow.</p>
+          <form onSubmit={send} className="grid gap-4">
+            <input name="name" required placeholder="Your name" aria-label="Your name" className={field} />
+            <input name="email" type="email" placeholder="Email (optional)" aria-label="Email" className={field} />
+            <textarea name="message" required rows={4} placeholder="Tell me about your project" aria-label="Project details" className={field} />
+            <button className="rounded-full bg-ink py-4 font-medium text-paper transition hover:bg-accent">Request My Free Audit</button>
+          </form>
+        </div>
       ) : (
         process.env.NODE_ENV !== "production" && (
           <p className="mt-12 text-center text-ink/60">Set NEXT_PUBLIC_WHATSAPP in .env.local (for example 2547XXXXXXXX) to enable the contact form.</p>

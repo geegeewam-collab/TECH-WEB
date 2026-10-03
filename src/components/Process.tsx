@@ -1,14 +1,14 @@
 const steps = [
-  ["Discover", "Understand the business, the customers and where money gets stuck."],
-  ["Design", "Map the flows and agree the screens before any code is written."],
-  ["Build", "Ship in small releases you can test as we go."],
-  ["Launch", "Go live, watch the payments, and keep supporting it."],
+  ["Audit", "Analyze your current flows to identify where money and time are leaking."],
+  ["Blueprint", "Map the optimized revenue flow and agree on the screens before any code is written."],
+  ["Build", "Ship in high-velocity releases you can test and iterate on as we go."],
+  ["Scale", "Go live, monitor payments, and optimize for growth."],
 ];
 
 export default function Process() {
   return (
     <section id="process" className="mx-auto max-w-7xl px-6 py-24">
-      <h2 className="text-5xl md:text-7xl">How I work</h2>
+      <h2 className="text-5xl md:text-7xl">The Path to ROI</h2>
       <ol className="mt-12 grid gap-10 md:grid-cols-4">
         {steps.map(([title, desc], i) => (
           <li key={title} className="border-t-2 border-ink pt-4">

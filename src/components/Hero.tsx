@@ -30,9 +30,9 @@ export default function Hero() {
           );
         })}
       </div>
-      <h1 className="relative max-w-4xl text-[clamp(3.4rem,9vw,7.5rem)]">Software that gets African businesses paid.</h1>
+      <h1 className="relative max-w-4xl text-[clamp(3.4rem,9vw,7.5rem)]">Stop the leakage. Automate your payments and booking systems.</h1>
       <p className="relative mt-6 max-w-md text-base text-ink/70">
-        Payment integrations, booking platforms and custom systems, built in Nairobi.
+        I build high-performance M-Pesa integrations and multi-tenant platforms that turn operational chaos into scalable revenue.
       </p>
       <Link href="#contact" className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-paper transition hover:bg-accent">
         Get in touch

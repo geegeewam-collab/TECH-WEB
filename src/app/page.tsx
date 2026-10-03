@@ -3,6 +3,7 @@ import Work from "@/components/Work";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
+import Reveal from "@/components/Reveal";
 
 const stack = ["Next.js", "React", "TypeScript", "Supabase", "Firebase", "Vercel", "M-Pesa Daraja"];
 
@@ -10,12 +11,12 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Work />
-      <Process />
-      <Services />
+      <Reveal><Work /></Reveal>
+      <Reveal><Process /></Reveal>
+      <Reveal><Services /></Reveal>
       <section id="about" className="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-2">
         <h2 className="text-5xl md:text-7xl">Developer, Nairobi.</h2>
-        <div>
+        <div className="flex flex-col justify-center">
           <p className="text-xl leading-relaxed md:text-2xl">
             I build payment, booking and management systems for businesses in Africa, from M-Pesa integrations to platforms that serve many clients at once.
           </p>
@@ -26,7 +27,7 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <Contact />
+      <Reveal><Contact /></Reveal>
       <footer className="py-10 text-center text-sm text-ink/50">© {new Date().getFullYear()} GEEGEE TECH, Nairobi</footer>
     </main>
   );
