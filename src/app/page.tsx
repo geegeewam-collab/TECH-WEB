@@ -1,33 +1,31 @@
 import Hero from "@/components/Hero";
-import ProofStrip from "@/components/ProofStrip";
-import BentoWork from "@/components/BentoWork";
+import Work from "@/components/Work";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 
+const stack = ["Next.js", "React", "TypeScript", "Supabase", "Firebase", "Vercel", "M-Pesa Daraja"];
+
 export default function Home() {
   return (
-    <main className="bg-paper text-ink">
+    <main>
       <Hero />
-      <ProofStrip />
-      <BentoWork />
+      <Work />
       <Process />
       <Services />
-      <section className="py-24 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-5xl font-anton mb-8">About</h2>
-        <p className="text-2xl md:text-3xl leading-relaxed mb-12">
-          Based in Nairobi, I specialize in the convergence of business strategy and elite engineering, transforming operational challenges into high-utility digital systems that drive measurable growth.
+      <section id="about" className="mx-auto max-w-4xl px-6 py-24 text-center">
+        <h2 className="text-5xl md:text-7xl">About</h2>
+        <p className="mt-8 text-xl leading-relaxed md:text-2xl">
+          I'm a developer in Nairobi. I build payment, booking and management systems for businesses in Africa, from M-Pesa integrations to platforms that serve many clients at once.
         </p>
-        <div className="flex flex-wrap justify-center gap-4 font-bold uppercase text-xs">
-          {["TypeScript", "React", "Node.js", "PostgreSQL", "AWS", "Tailwind"].map(tech => (
-            <span key={tech} className="px-4 py-2 border border-ink rounded-md">{tech}</span>
+        <ul className="mt-10 flex flex-wrap justify-center gap-3 text-sm">
+          {stack.map((t) => (
+            <li key={t} className="rounded-full border border-ink/30 px-4 py-2">{t}</li>
           ))}
-        </div>
+        </ul>
       </section>
       <Contact />
-      <footer className="py-12 text-center opacity-50 text-sm font-inter">
-        © {new Date().getFullYear()} GEEGEE TECH. Designed with purpose. Engineered for scale.
-      </footer>
+      <footer className="py-10 text-center text-sm text-ink/50">© {new Date().getFullYear()} GEEGEE TECH, Nairobi</footer>
     </main>
   );
 }
