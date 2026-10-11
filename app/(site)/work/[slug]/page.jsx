@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { WORK } from "../../../lib/site";
-import Frame from "../../../components/Frame";
-import Closing from "../../../components/Closing";
+import { WORK } from "../../../../lib/site";
+import Frame from "../../../../components/Frame";
+import Closing from "../../../../components/Closing";
 export const generateStaticParams = () => WORK.map((w) => ({ slug: w.slug }));
 export async function generateMetadata({ params }) { const { slug } = await params; const w = WORK.find((x) => x.slug === slug); return w ? { title: w.t, description: w.sum } : {}; }
 export default async function Case({ params }) {

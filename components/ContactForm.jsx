@@ -5,6 +5,7 @@ export default function ContactForm() {
   async function go(e) {
     e.preventDefault(); setS({ k: "busy" });
     const d = Object.fromEntries(new FormData(e.target));
+    try { d.attribution = JSON.parse(localStorage.getItem("gg_attr") || "{}"); } catch {}
     try {
       const r = await fetch("/api/enquiry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) });
       const j = await r.json().catch(() => ({}));
@@ -18,7 +19,9 @@ export default function ContactForm() {
       <label>Email<input name="email" type="email" required maxLength={160} autoComplete="email" /></label>
       <label>Business <span>(optional)</span><input name="business" maxLength={160} /></label>
       <label>What do you need?<textarea name="message" required minLength={10} maxLength={3000} rows={5} /></label>
+      <label>Phone <span>(optional)</span><input name="phone" type="tel" maxLength={40} autoComplete="tel" /></label>
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
+      <p className="fine">We only use these details to reply to your enquiry.</p>
       <button className="btn" disabled={s.k === "busy"}>{s.k === "busy" ? "Sending…" : "Send enquiry"}</button>
       {s.k === "err" && <p className="err" role="alert">{s.m}</p>}
     </form>);

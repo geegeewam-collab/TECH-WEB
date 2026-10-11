@@ -1,1 +1,19 @@
-{"name":"geegee-studios","version":"1.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"next":"15.5.27","react":"^19.2.0","react-dom":"^19.2.0"}}
+{
+  "name": "geegee-studios",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --test tests/leads.test.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.0",
+    "server-only": "^0.0.1"
+  }
+}

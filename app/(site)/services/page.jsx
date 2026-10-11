@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { SERVICES } from "../../lib/site";
-import Closing from "../../components/Closing";
+import { SERVICES } from "../../../lib/site";
+import Closing from "../../../components/Closing";
 export const metadata = { title: "Services", description: "Websites, business systems and automation." };
 export default function Services() {
   return (<><div className="w pg"><h1>Services</h1><p className="lead">Three focused service areas. Each one starts with the problem it solves.</p></div>

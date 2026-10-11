@@ -1,22 +1,24 @@
-# GEEGEE STUDIOS website (Next.js 15)
+# GEEGEE TECH website + admin (Next.js 15, Supabase)
 
-Brand name, services, projects and process live in `lib/site.js`. Colours are CSS variables at the top of `app/globals.css`.
+Brand, services, projects: `lib/site.js`. Colours: top of `app/globals.css`. Screenshots: `public/work/<slug>.png` (arverdor, el-suites).
 
 ## Run locally
     npm install
-    npm run dev        # http://localhost:3000
+    cp .env.example .env.local   # fill in (Windows: copy)
+    npm run dev
+    npm test
 
-## Deploy (Vercel)
-1. Push this folder to a GitHub repo.
-2. Import the repo in Vercel (framework: Next.js, no settings needed).
-3. Add the variables from `.env.example` under Project Settings > Environment Variables, then redeploy.
+## Set up the database and admin (once)
+1. Create a free project at supabase.com. Copy the URL, anon key and service_role key (Project Settings > API).
+2. SQL Editor > New query > paste `supabase/schema.sql` > Run.
+3. Authentication > Sign In / Providers: turn OFF "Allow new users to sign up". Then Authentication > Users > Add user: your email + a strong password.
+4. In Vercel > Settings > Environment Variables add everything from `.env.example` (ADMIN_EMAILS = the email from step 3). Redeploy.
+5. Open `/admin/login`.
 
-## Enquiry form
-`/api/enquiry` validates input server-side, blocks bots (honeypot) and rate-limits, then emails you through Resend.
-Without `RESEND_API_KEY`, `ENQUIRY_TO_EMAIL` and `ENQUIRY_FROM_EMAIL` it returns an honest "not set up" error and the form shows it. Nothing is stored in a database yet: the email is the only record, so adding a database is the first upgrade.
-The rate limit is in memory (best effort on serverless).
+## How it works
+- Contact form -> `/api/enquiry` validates, stores the lead (with UTM source, landing page, referrer), and only then reports success. The email alert is best effort; its result is stored on the lead and failures are flagged in the admin.
+- Only server code reads the database (the browser key can read nothing). Every admin page and action re-checks the signed-in email against `ADMIN_EMAILS`.
+- Changes to a lead are written to `audit_log`.
 
-## Not included yet
-Add real screenshots as public/work/<project-slug>.png (arverdor.png, el-suites.png) and they replace the placeholder frames automatically.
-
-Privacy and terms pages, studio/founder page, FAQ, client portal, admin and invoicing, analytics.
+## Not built yet
+Clients, proposals, projects, invoices, payments, statements, client portal, settings UI, analytics tags. The in-memory rate limit is best effort on serverless.

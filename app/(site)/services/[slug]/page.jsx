@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SERVICES } from "../../../lib/site";
-import Closing from "../../../components/Closing";
+import { SERVICES } from "../../../../lib/site";
+import Closing from "../../../../components/Closing";
 export const generateStaticParams = () => SERVICES.map((s) => ({ slug: s.slug }));
 export async function generateMetadata({ params }) { const { slug } = await params; const s = SERVICES.find((x) => x.slug === slug); return s ? { title: s.t, description: s.short } : {}; }
 export default async function Service({ params }) {

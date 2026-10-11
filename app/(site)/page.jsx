@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { SERVICES, PROCESS } from "../lib/site";
-import { WORK } from "../lib/site";
-import Frame from "../components/Frame";
-import WorkCards from "../components/WorkCards";
-import Closing from "../components/Closing";
+import { SERVICES, PROCESS } from "../../lib/site";
+import { WORK } from "../../lib/site";
+import Frame from "../../components/Frame";
+import WorkCards from "../../components/WorkCards";
+import Closing from "../../components/Closing";
 export default function Home() {
   return (<>
     <section className="hero"><div className="w hg">

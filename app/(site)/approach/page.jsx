@@ -1,5 +1,5 @@
-import { PROCESS } from "../../lib/site";
-import Closing from "../../components/Closing";
+import { PROCESS } from "../../../lib/site";
+import Closing from "../../../components/Closing";
 export const metadata = { title: "Approach", description: "How the studio works." };
 export default function Approach() {
   return (<><div className="w pg"><h1>How we work</h1><p className="lead">Five stages, with scope and terms agreed in writing before the next one begins.</p></div>
