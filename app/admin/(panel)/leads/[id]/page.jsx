@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { requireAdmin } from "../../../../lib/supabase";
-import { STATUSES } from "../../../../lib/leads.mjs";
-import { updateLead } from "../../actions";
+import { requireAdmin } from "../../../../../lib/supabase";
+import { STATUSES, sourceLabel } from "../../../../../lib/leads.mjs";
+import { updateLead } from "../../../actions";
 export const dynamic = "force-dynamic";
 export default async function Lead({ params, searchParams }) {
   const { db } = await requireAdmin();
@@ -10,7 +10,7 @@ export default async function Lead({ params, searchParams }) {
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();
   const { data: l } = await db.from("leads").select("*").eq("id", id).maybeSingle();
   if (!l) notFound();
-  const src = [l.utm_source, l.utm_medium, l.utm_campaign, l.utm_content].filter(Boolean).join(" / ") || "Direct or unknown";
+  const src = [l.utm_source, l.utm_medium, l.utm_campaign, l.utm_content].filter(Boolean).join(" / ") || sourceLabel(l);
   return (<><p><Link href="/admin/leads">← Leads</Link></p><h1>{l.name}</h1>
     <p className="mut">{l.business && `${l.business} · `}<a href={`mailto:${l.email}`}>{l.email}</a>{l.phone && <> · <a href={`tel:${l.phone}`}>{l.phone}</a></>}</p>
     <div className="card" style={{ margin: "20px 0" }}><p style={{ whiteSpace: "pre-wrap" }}>{l.message}</p></div>

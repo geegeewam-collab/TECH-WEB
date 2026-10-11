@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { requireAdmin } from "../../lib/supabase";
-import { STATUSES } from "../../lib/leads.mjs";
+import { requireAdmin } from "../../../lib/supabase";
+import { STATUSES } from "../../../lib/leads.mjs";
 export const dynamic = "force-dynamic";
 export default async function Overview() {
   const { db } = await requireAdmin();

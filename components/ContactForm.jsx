@@ -21,7 +21,7 @@ export default function ContactForm() {
       <label>What do you need?<textarea name="message" required minLength={10} maxLength={3000} rows={5} /></label>
       <label>Phone <span>(optional)</span><input name="phone" type="tel" maxLength={40} autoComplete="tel" /></label>
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
-      <p className="fine">We only use these details to reply to your enquiry.</p>
+      <p className="fine">We only use these details to reply to your enquiry. <a href="/privacy">Privacy</a></p>
       <button className="btn" disabled={s.k === "busy"}>{s.k === "busy" ? "Sending…" : "Send enquiry"}</button>
       {s.k === "err" && <p className="err" role="alert">{s.m}</p>}
     </form>);

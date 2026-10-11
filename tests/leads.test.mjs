@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { validateEnquiry, STATUSES } from "../lib/leads.mjs";
+import { validateEnquiry, STATUSES, sourceLabel } from "../lib/leads.mjs";
 const ok = { name: " Amina ", email: "A@Example.com", message: "I need a booking website." };
 test("accepts and normalises a valid enquiry", () => { const r = validateEnquiry(ok); assert.equal(r.data.name, "Amina"); assert.equal(r.data.email, "a@example.com"); assert.equal(r.data.phone, null); });
 test("rejects bad email, short message, missing name", () => {
@@ -13,3 +13,8 @@ test("keeps UTM data and caps its length", () => {
 });
 test("ignores a non-object attribution", () => assert.equal(validateEnquiry({ ...ok, attribution: "<script>" }).data.utm_source, null));
 test("lead statuses match the database", () => assert.deepEqual(Object.keys(STATUSES), ["new", "contacted", "qualified", "proposal_in_preparation", "proposal_sent", "won", "lost", "archived"]));
+test("source label prefers UTM, then referrer host, then Direct", () => {
+  assert.equal(sourceLabel({ utm_source: "google", referrer: "https://x.com/" }), "google");
+  assert.equal(sourceLabel({ referrer: "https://www.vercel.com/a" }), "vercel.com");
+  assert.equal(sourceLabel({ referrer: "" }), "Direct");
+});
