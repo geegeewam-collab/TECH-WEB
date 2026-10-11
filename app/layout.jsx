@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <main id="main">{children}</main>
       <footer><div className="w foot">
         <div><Link href="/" className="logo">{SITE.name}</Link><p>{SITE.desc}</p></div>
-        <div className="fl"><Link href="/work">Work</Link><Link href="/services">Services</Link><Link href="/approach">Approach</Link><Link href="/contact">Contact</Link>
+        <div className="fl"><Link href="/work">Portfolio</Link><Link href="/services">Services</Link><Link href="/approach">Approach</Link><Link href="/contact">Contact</Link>
           {SITE.email && <a href={`mailto:${SITE.email}`}>{SITE.email}</a>}</div>
         <p className="cp">© {new Date().getFullYear()} {SITE.name}</p>
       </div></footer>

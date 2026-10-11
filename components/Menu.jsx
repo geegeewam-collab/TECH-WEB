@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-const L = [["/work", "Work"], ["/services", "Services"], ["/approach", "Approach"], ["/contact", "Contact"]];
+const L = [["/work", "Portfolio"], ["/services", "Services"], ["/approach", "Approach"], ["/contact", "Contact"]];
 export default function Menu() {
   const p = usePathname(), [o, setO] = useState(false);
   useEffect(() => setO(false), [p]);

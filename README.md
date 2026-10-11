@@ -17,4 +17,6 @@ Without `RESEND_API_KEY`, `ENQUIRY_TO_EMAIL` and `ENQUIRY_FROM_EMAIL` it returns
 The rate limit is in memory (best effort on serverless).
 
 ## Not included yet
+Add real screenshots as public/work/<project-slug>.png (arverdor.png, el-suites.png) and they replace the placeholder frames automatically.
+
 Privacy and terms pages, studio/founder page, FAQ, client portal, admin and invoicing, analytics.
