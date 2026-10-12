@@ -13,6 +13,7 @@ export default async function Lead({ params, searchParams }) {
   const src = [l.utm_source, l.utm_medium, l.utm_campaign, l.utm_content].filter(Boolean).join(" / ") || sourceLabel(l);
   return (<><p><Link href="/admin/leads">← Leads</Link></p><h1>{l.name}</h1>
     <p className="mut">{l.business && `${l.business} · `}<a href={`mailto:${l.email}`}>{l.email}</a>{l.phone && <> · <a href={`tel:${l.phone}`}>{l.phone}</a></>}</p>
+    <p style={{ margin: "14px 0" }}><Link href={`/admin/clients?from=${l.id}`}>Create client and proposal →</Link></p>
     <div className="card" style={{ margin: "20px 0" }}><p style={{ whiteSpace: "pre-wrap" }}>{l.message}</p></div>
     <p className="mut">Received {new Date(l.created_at).toLocaleString("en-KE")} · Source: {src}{l.landing_page && ` · Landed on ${l.landing_page}`}{l.referrer && ` · From ${l.referrer}`}</p>
     <p className="mut">Email alert: {l.notify_status}{l.notify_error && ` (${l.notify_error})`}</p>

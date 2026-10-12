@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { trackLead } from "../lib/track";
 export default function ContactForm() {
   const [s, setS] = useState({ k: "idle" });
   async function go(e) {
@@ -9,7 +10,7 @@ export default function ContactForm() {
     try {
       const r = await fetch("/api/enquiry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) });
       const j = await r.json().catch(() => ({}));
-      if (r.ok) { e.target.reset(); setS({ k: "ok" }); } else setS({ k: "err", m: j.error || "Something went wrong. Please try again." });
+      if (r.ok) { e.target.reset(); setS({ k: "ok" }); trackLead(); } else setS({ k: "err", m: j.error || "Something went wrong. Please try again." });
     } catch { setS({ k: "err", m: "Network error. Please try again." }); }
   }
   if (s.k === "ok") return <p className="ok" role="status">Thank you. Your enquiry has been received and we will reply by email.</p>;
