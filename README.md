@@ -12,6 +12,9 @@ Public site, `/admin` (leads, clients, proposals, projects, invoices, payments, 
 3. Open `/admin/login`, then **Settings**: business name, contact email, WhatsApp (digits, e.g. 2547...), payment instructions, payment days. The launch checklist on that page shows what is still missing.
 4. Add project screenshots as `public/work/arverdor.png` and `public/work/el-suites.png`.
 
+## If sign-in or the contact form fails
+Open `/api/health` on your site. It says which setting is missing or wrong (it never shows the values): the Supabase URL must be the Project URL like `https://abcd.supabase.co`, the keys must belong to that project, and the tables must exist (run `supabase/setup.sql`). After changing variables in Vercel, redeploy.
+
 ## Daily use
 Lead > Create client and proposal > Send > share the link (WhatsApp / email) > client accepts > Create project / Create draft invoice > Issue > Record payment > Receipt. Statements: pick a client and dates, preview, publish to the portal or share. Clients: open a client > Create a portal login, and send the credentials on WhatsApp. `/portal/login` for clients.
 

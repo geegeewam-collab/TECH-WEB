@@ -14,8 +14,8 @@ export default function Home() {
         <div className="act"><Link href="/contact" className="btn am">Start a project</Link><Link href="/work" className="ln">View portfolio</Link></div>
       </div>
       <div className="hv" aria-label="Recent projects">
-        <Link href={`/work/${WORK[0].slug}`} className="f1"><Frame w={WORK[0]} /></Link>
-        <Link href={`/work/${WORK[1].slug}`} className="f2"><Frame w={WORK[1]} /></Link>
+        <Link href={`/work/${WORK[0].slug}`} className="f1"><Frame w={WORK[0]} eager /></Link>
+        <Link href={`/work/${WORK[1].slug}`} className="f2"><Frame w={WORK[1]} eager /></Link>
       </div>
     </div></section>
     <section id="portfolio"><div className="w"><div className="sh"><h2>Portfolio</h2><Link href="/work" className="ln">All projects</Link></div><WorkCards /></div></section>

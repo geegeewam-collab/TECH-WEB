@@ -1,13 +1,18 @@
 "use server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { authClient, requireAdmin, isAdmin } from "../../lib/supabase";
+import { authClient, requireAdmin, isAdmin, configured } from "../../lib/supabase";
 import { STATUSES } from "../../lib/leads.mjs";
 export async function login(_, fd) {
-  const sb = await authClient();
-  const { data, error } = await sb.auth.signInWithPassword({ email: String(fd.get("email") || "").trim(), password: String(fd.get("password") || "") });
-  if (error || !isAdmin(data.user)) { if (!error) await sb.auth.signOut(); return { error: "Sign-in failed. Check your email and password." }; }
-  redirect("/admin");
+  let ok = false;
+  try {
+    if (!configured()) return { error: "The site is not connected to Supabase yet. Open /api/health to see what is missing." };
+    const sb = await authClient();
+    const { data, error } = await sb.auth.signInWithPassword({ email: String(fd.get("email") || "").trim(), password: String(fd.get("password") || "") });
+    if (error || !isAdmin(data.user)) { if (!error) await sb.auth.signOut(); return { error: "Sign-in failed. Check your email and password." }; }
+    ok = true;
+  } catch (e) { console.error("admin login failed:", e?.message); return { error: "Sign-in could not be completed. Open /api/health to check the setup." }; }
+  if (ok) redirect("/admin");
 }
 export async function logout() { await (await authClient()).auth.signOut(); redirect("/admin/login"); }
 export async function updateLead(fd) {
