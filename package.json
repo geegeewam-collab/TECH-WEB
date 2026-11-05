@@ -1,20 +1,15 @@
 {
-  "name": "geegee-tech",
+  "name": "geegee-tech-website",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "GEEGEE TECH multi-page company website",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "node --test tests/leads.test.mjs tests/money.test.mjs tests/billing.test.mjs tests/statement.test.mjs tests/portal.test.mjs"
+    "dev": "node scripts/serve.mjs --source",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dist"
   },
-  "dependencies": {
-    "@supabase/ssr": "^0.6.1",
-    "@supabase/supabase-js": "^2.49.0",
-    "next": "15.5.27",
-    "pdfkit": "^0.20.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "server-only": "^0.0.1"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
