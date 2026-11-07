@@ -99,3 +99,17 @@ The included `vercel.json` supplies the build and output settings.
 - [ ] Test the contact form on a device with an email application configured, or use a form endpoint.
 - [ ] Run `npm run build` and `npm run preview` before pushing the final changes.
 - [ ] Add the domain and verify the deployed pages after the first Vercel deployment.
+
+
+### Newsletter setup
+
+Add `RESEND_API_KEY` in Vercel → Project → Settings → Environment Variables. Optionally add `RESEND_SEGMENT_ID` for the Resend segment that should receive new signups. Redeploy after saving. Without the key, the form displays an honest not-yet-connected message.
+
+
+## Product catalogue
+
+The Products page is live as a product discovery and early-access destination. ExamMate is deliberately labelled as in development. Do not add pricing, a buy button or claims of availability until the release, support model and payment flow have been confirmed.
+
+## Visual direction
+
+Use graphite / near-black as the canvas, warm white as the main text colour, scarlet for key actions and limited graphic moments, and ice blue as the counter-accent. Preserve the original glass / chrome language, sculpture assets and typography. The colour reference should feel like a confident signature, not a blanket recolour.

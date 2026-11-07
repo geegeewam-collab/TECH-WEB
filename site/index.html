@@ -15,10 +15,12 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/premium.css">
   <link rel="stylesheet" href="/assets/css/glass.css">
+  <link rel="stylesheet" href="/assets/css/color-direction.css">
   <title>Home | GEEGEE TECH</title>
   <script defer src="/assets/js/config.js"></script>
   <script defer src="/assets/js/main.js"></script>
   <script src="/assets/js/motion.js" defer></script>
+  <script src="/assets/js/newsletter.js" defer></script>
   
 </head>
 <body id="top">
@@ -37,6 +39,7 @@
       <a data-nav-link href="/">Home</a>
       <a data-nav-link href="/capabilities/">Capabilities</a>
       <a data-nav-link href="/work/">Our work</a>
+      <a data-nav-link href="/products/">Products</a>
       <a data-nav-link href="/studio/">Studio</a>
       <a data-nav-link href="/approach/">Approach</a>
       <a data-nav-link href="/contact/">Contact</a>
@@ -52,7 +55,7 @@
       <span class="eyebrow">Independent technology &amp; creative studio</span>
       <h1 class="display" id="home-title">Technology that moves <em>business forward.</em></h1>
       <p class="lead">We design and build digital systems, software and experiences that turn ambitious ideas into useful, lasting progress.</p>
-      <div class="button-row"><a class="btn btn-primary" href="/capabilities/">Explore capabilities <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="btn btn-secondary" href="/contact/">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      <div class="button-row"><a class="btn btn-primary" href="/capabilities/">Explore what we do <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="btn btn-secondary" href="/contact/">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
     </div>
     <aside class="hero-side reveal" aria-label="Studio focus">
       <div class="side-top"><span>GGT / 001</span><span class="status-dot" aria-hidden="true"></span></div>
@@ -93,6 +96,43 @@
     <div class="button-row"><a class="btn btn-secondary" href="/work/">Explore selected work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
   </div>
 </section>
+<section class="section section--border" id="products-preview">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">From the product studio</span><h2 class="section-title">Tools we make. <em>Problems made smaller.</em></h2></div><p>Alongside client work, we shape our own software and digital tools — focused products built around real everyday friction.</p></div>
+    <div class="product-feature reveal">
+      <div class="product-feature-copy">
+        <span class="product-status-line">First release in development</span>
+        <h3>Meet <em>ExamMate.</em></h3>
+        <p>A voice-first study companion exploring a more natural way to move through learning — with hands-free interactions and a calmer study flow.</p>
+        <div class="button-row"><a class="btn btn-primary" href="/products/">Explore our products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="btn btn-link" href="/products/#product-exammate">See the product <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+      </div>
+      <div class="product-feature-art" aria-label="Abstract ExamMate product interface concept" role="img">
+        <div class="product-art-grid">
+          <div class="product-art-tile product-art-tile--red"><span>GGT / PRODUCT 001</span><strong>STUDY<br>IN FLOW.</strong><span>EXAMMATE / EARLY BUILD</span></div>
+          <div class="product-art-tile product-art-tile--screen"><div class="product-screen-bar"><span>ExamMate / Study space</span><span class="product-screen-dots"><i></i><i></i><i></i></span></div><h4 class="product-screen-title">What would you like to work through?</h4><p class="product-screen-sub">A quieter way to move from question to understanding.</p><div class="product-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="product-screen-foot"><span>Voice interaction</span><span>Preview concept</span></div></div>
+          <div class="product-art-tile product-art-tile--ice"><span>BUILT AROUND YOU</span><strong>LESS FRICTION.<br>MORE FOCUS.</strong><span>IN DEVELOPMENT</span></div>
+        </div>
+        <div class="product-art-stamp">GEEGEE TECH / DIGITAL PRODUCTS</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="newsletter-panel reveal">
+      <div class="newsletter-copy"><span class="eyebrow">Signals from the studio</span><h2>Good things are worth hearing about.</h2><p>Get occasional notes on new products, useful tools, studio experiments and releases. No noise — just things worth opening.</p></div>
+      <div class="newsletter-form-wrap">
+        <form class="newsletter-form" data-newsletter-form novalidate>
+          <label class="honeypot" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <input type="email" name="email" placeholder="Your email address" autocomplete="email" required aria-label="Your email address">
+          <button type="submit">Keep me in the loop <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="newsletter-consent">By subscribing, you agree to receive occasional GEEGEE TECH updates. Unsubscribe whenever you like.</p>
+        <p class="newsletter-response" data-newsletter-response role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="quote-band art-surface art-ten">
   <div class="wrap"><div class="quote-content reveal"><span class="eyebrow">A practical philosophy</span><blockquote>Technology is only valuable when it <span>makes something better.</span></blockquote><p>That is the standard we bring to every decision — what are we solving, who does it help, and how will it work in the real world?</p></div></div>
 </section>
@@ -110,7 +150,7 @@
 </svg><span class="brand-word"><strong>GEEGEE TECH</strong><span>TECHNOLOGY STUDIO</span></span></a>
         <p>We build technology, systems and digital experiences that help businesses move forward with clarity and confidence.</p>
       </div>
-      <div class="footer-col"><h3>Explore</h3><div class="footer-links"><a href="/capabilities/">Capabilities</a><a href="/work/">Selected work</a><a href="/studio/">The studio</a><a href="/approach/">Our approach</a></div></div>
+      <div class="footer-col"><h3>Explore</h3><div class="footer-links"><a href="/capabilities/">Capabilities</a><a href="/work/">Selected work</a><a href="/products/">Digital products</a><a href="/studio/">The studio</a><a href="/approach/">Our approach</a></div></div>
       <div class="footer-col"><h3>Start something</h3><div class="footer-links"><a href="/contact/">Project enquiries</a><a href="/contact/">Collaborate with us</a><a href="/work/">Explore our work</a></div></div>
     </div>
     <div class="footer-bottom"><span>© <span data-current-year>2026</span> GEEGEE TECH. All rights reserved.</span><span>Built with intent. Designed for what’s next.</span><a href="#top">Back to top ↑</a></div>

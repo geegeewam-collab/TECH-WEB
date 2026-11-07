@@ -1,12 +1,13 @@
 # GEEGEE TECH — Website
 
-A dark, premium, multi-page website for GEEGEE TECH. The project is intentionally dependency-free: it uses plain HTML, CSS and JavaScript, plus a small Node.js development server and build script. No framework install or external image service is required.
+A premium, multi-page website for GEEGEE TECH, retaining the graphite / glass identity and introducing a restrained scarlet, ice-blue and warm-white accent system. The project is intentionally dependency-free: it uses plain HTML, CSS and JavaScript, plus a small Node.js development server and build script. No framework install or external image service is required.
 
 ## Included pages
 
 - `/` — Home
 - `/capabilities/` — Services and capabilities
 - `/work/` — Selected work with category filters
+- `/products/` — Digital product catalogue and early-access entry point
 - `/work/mpingo-os/` — Mpingo OS project page
 - `/work/skoola/` — Skoola project page
 - `/work/safari-companion/` — Safari Companion project page
@@ -76,8 +77,9 @@ This project is configured for Vercel as a static site.
 1. Create a Git repository and push this project folder.
 2. In Vercel, choose **Add New → Project** and import the repository.
 3. Vercel reads the included `vercel.json`. Confirm the build command is `npm run build` and the output directory is `dist`.
-4. Deploy. No environment variables or third-party package installation are required for the base site.
-5. Add the real domain in Vercel and then update the sitemap and robots file with that domain.
+4. Deploy. No third-party package installation is required.
+5. To enable live newsletter capture, add `RESEND_API_KEY` in Vercel → Project → Settings → Environment Variables. Optionally add `RESEND_SEGMENT_ID` to place new contacts in a Resend segment. Redeploy after saving. Without the key, the page remains usable but the signup endpoint reports that newsletter setup is incomplete.
+6. Add the real domain in Vercel and then update the sitemap and robots file with that domain.
 
 You can also test the production build locally with `npm run build` followed by `npm run preview`.
 
@@ -85,8 +87,11 @@ You can also test the production build locally with `npm run build` followed by 
 
 - Company email and form endpoint: `site/assets/js/config.js`
 - Page copy and structure: the relevant `site/**/index.html` file
-- Design tokens, typography, layout and responsive behaviour: `site/assets/css/styles.css`
+- Core design tokens, typography, layout and responsive behaviour: `site/assets/css/styles.css`
+- Scarlet / ice / warm-white art direction and product/newsletter components: `site/assets/css/color-direction.css`
 - Navigation, filters, mobile menu and reveal effects: `site/assets/js/main.js`
+- Newsletter submission behaviour: `site/assets/js/newsletter.js`
+- Resend-backed newsletter API: `api/newsletter.js`
 - Contact form behaviour: `site/assets/js/contact.js`
 - Original background artwork: `site/assets/backgrounds/1.png`
 - Standalone logo files: `site/assets/brand/geegee-tech-symbol.svg` and `geegee-tech-lockup.svg`
@@ -98,6 +103,7 @@ GEEGEE-TECH-Website/
 ├── site/
 │   ├── index.html
 │   ├── capabilities/index.html
+│   ├── products/index.html
 │   ├── work/index.html
 │   ├── work/*/index.html
 │   ├── studio/index.html
@@ -107,6 +113,8 @@ GEEGEE-TECH-Website/
 │       ├── backgrounds/
 │       ├── css/
 │       └── js/
+├── api/
+│   └── newsletter.js
 ├── scripts/
 │   ├── build.mjs
 │   └── serve.mjs
@@ -114,3 +122,20 @@ GEEGEE-TECH-Website/
 ├── vercel.json
 └── LAUNCH-GUIDE.md
 ```
+
+## Product page and newsletter
+
+- Product catalogue: `/products/`. The current ExamMate entry is explicitly marked **in development**; there is no live checkout or public pricing until a product is released.
+- Newsletter UI: homepage and Products page. The Vercel function at `/api/newsletter` stores contacts using Resend's Contacts API.
+- Configure the Vercel project environment variable `RESEND_API_KEY` before enabling live signups. Optionally set `RESEND_SEGMENT_ID` to add signups to a specific Resend segment. Redeploy after adding or changing environment variables.
+- The API keeps the Resend key server-side, validates email addresses, checks same-origin browser submissions, and includes a honeypot field.
+
+The newsletter form is intentionally not represented as active until the Resend key is configured. The website can build and deploy without these environment variables; the endpoint returns a clear setup response until configured.
+
+## Colour and visual direction
+
+The supplied reference image is treated as an accent palette, not a full colour replacement. Keep graphite / near-black and the original glass-and-chrome artwork as the visual foundation; use warm white for primary type and surfaces, scarlet for key actions and occasional graphic blocks, and ice blue as a small balancing accent. Avoid spreading red across every card or control. The existing typography, sculpture stage, spacious layouts and restrained motion remain part of the identity.
+
+## Product commerce readiness
+
+The Products page is the foundation for a future software storefront. ExamMate is shown as in development, with no made-up pricing or purchase button. Add product detail, licence options, checkout and subscription handling only when a real product is ready and the commercial model and payment provider have been chosen.
